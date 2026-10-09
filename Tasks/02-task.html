@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+</head>
+
+<body>
+    <h2>Расчет объема цилиндра</h2>
+
+    <label for="height">Высота цилиндра (h):</label>
+    <input type="number" id="height" step="any"><br><br>
+
+    <label for="radius">Радиус цилиндра (r):</label>
+    <input type="number" id="radius" step="any"><br><br>
+
+    <button>Вычислить объем</button>
+
+    <p id="result"></p>
+
+    <script>
+        /*
+        Задание:
+        Напишите сценарий, который вычисляет объем цилиндра по параметрам, которые вводит пользователь.
+        Для расчета используйте формулу - V=π * r в квадрате * h
+        Разместите на странице два поля ввода - первое для радиуса цилиндра, второе для высоты цилиндра.
+        Объем цилиндра выведите в тело страницы.
+        */
+
+        let calcBtn = document.querySelector("button");
+        calcBtn.addEventListener("click", calc);
+
+        function calc() {
+            let height = parseFloat(document.getElementById("height").value);
+            let radius = parseFloat(document.getElementById("radius").value);
+
+            if (radius <= 0 || height <= 0) 
+            {
+                document.getElementById("result").innerText = "Введите положительные числа для радиуса и высоты";
+                return;
+            } 
+            else 
+            {
+                const P = Math.PI;
+                let volume = P * (radius ** 2) * height;
+                document.getElementById("result").innerText = "Объем цилиндра: " + volume;
+            }
+        }
+    </script>
+</body>
+
+</html>       

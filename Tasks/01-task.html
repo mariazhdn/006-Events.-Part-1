@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+    <button id="testBtn1" onclick="showMessage()">Test Button</button>
+    <button id="testBtn2">Test Button</button>
+    <button id="testBtn3">Test Button</button>
+
+    <div id="text"></div>
+
+    <script>
+        /*
+        Задание:
+        Добавьте для кнопки testBtn обработчик на событие click.
+        Обработчик должен выводить на экран сообщение Hello world.
+        Добавьте обработчик тремя разными способами.
+        */
+
+        let test2 = document.getElementById("testBtn2")
+        test2.onclick = showMessage
+
+        let test3 = document.getElementById("testBtn3")
+        test3.addEventListener("mousemove", Func)
+        test3.addEventListener("click", Func2)
+
+        function showMessage() {
+            alert('Hello world');
+        }
+
+        function Func()
+        {
+            let test3 = document.getElementById("text");
+            test3.style.backgroundColor = "lightpink";
+            test3.style.marginTop = "10px";
+            test3.style.width="100px";
+            test3.innerText = "Hello world";
+            test3.style.textAlign = "center";
+        }
+        function Func2()
+        {
+            let test3 = document.getElementById("text");
+            test3.style.border = "2px solid black";
+            test3.style.textAlign = "center";
+        }
+    </script>
+</body>
+
+</html>
