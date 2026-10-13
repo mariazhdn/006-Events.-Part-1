@@ -61,6 +61,12 @@
             padding-left: 4px;
             width: 68%;
         }
+
+        .delete-btn {
+            margin-left: auto;
+            padding: 2px 6px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -98,8 +104,21 @@
             let p = document.createElement("p");
             p.innerText = text;
 
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Удалить";
+            deleteBtn.classList.add("delete-btn");
+
+            deleteBtn.addEventListener("click", function() {
+                div.remove(); 
+                
+                if (taskList.querySelectorAll(".task").length === 0) {
+                    startMessage.hidden = false;
+                }
+            });
+
             div.append(input);
             div.append(p);
+            div.append(deleteBtn);
 
             return div;
         }
@@ -120,7 +139,7 @@
                 taskList.append(newTask);
                 taskNameInput.value = "";
             } else { 
-                alert("введите имя задачи");
+                alert("Введите имя задачи!");
             }
         }
     </script>

@@ -11,15 +11,22 @@
 <body>
     <button id="testBtn">Click me</button>
     <button id="removeHandlerBtn">Удалить обработчик события</button>
+    <button id="addBtn">Add</button>
 
     <script>
         let testBtn = document.querySelector("#testBtn");
         let removeHandlerBtn = document.querySelector("#removeHandlerBtn");
+        let addBtn = document.querySelector("#addBtn");
 
         function handler() {
             alert("Обработчик события");
         }
+        function handlerAdd() {
+            aler("Обработчик добавлен");
+            testBtn.addEventListener("click", handler);
+        }
 
+        addBtn.addEventListener("click", handlerAdd);
         testBtn.addEventListener("click", handler); // устанавливаем обработчик на событие click
 
         removeHandlerBtn.addEventListener("click", function () {
